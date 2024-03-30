@@ -1,0 +1,149 @@
+---
+title: "Baseball_Predictions"
+author: "Sathvik Katta"
+date: "2024-03-30"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+batting_season_summary <- read.csv("batting_season_summary.csv")
+Astros_batting <- filter(batting_season_summary, team == 'Astros')
+
+Hits_HomeRuns = lm(HR ~ H, data=batting_season_summary)
+summary(Hits_HomeRuns)
+
+ggplot(batting_season_summary, aes(x=HR,y=H)) +
+  geom_point() + 
+  geom_smooth(method='lm')
+
+```
+
+```{r}
+
+Hits_BattingAverage = lm(BA ~ H, data=batting_season_summary)
+summary(Hits_BattingAverage)
+
+ggplot(batting_season_summary, aes(x=BA,y=H)) +
+  geom_point() + 
+  geom_smooth(method='lm')
+
+```
+
+```{r}
+
+Hits_OBP = lm(OBP ~ H, data=batting_season_summary)
+summary(Hits_OBP)
+
+ggplot(batting_season_summary, aes(x=OBP,y=H)) +
+  geom_point() + 
+  geom_smooth(method='lm')
+
+
+
+```
+
+```{r}
+
+Hits_SLG = lm(SLG ~ H, data=batting_season_summary)
+summary(Hits_SLG)
+
+ggplot(batting_season_summary, aes(x=SLG,y=H)) +
+  geom_point() + 
+  geom_smooth(method='lm')
+
+
+```
+
+```{r}
+
+Hits_X2B = lm(X2B ~ H, data=batting_season_summary)
+summary(Hits_X2B)
+
+ggplot(batting_season_summary, aes(x=X2B,y=H)) +
+  geom_point() + 
+  geom_smooth(method='lm')
+
+
+```
+
+```{r}
+
+Hits_X3B = lm(X3B ~ H, data=batting_season_summary)
+summary(Hits_X3B)
+
+ggplot(batting_season_summary, aes(x=X3B,y=H)) +
+  geom_point() + 
+  geom_smooth(method='lm')
+
+```
+
+
+
+Home_Runs vs. Hits = 0.37(slope), R^2 = 0.67
+BA vs. Hits, R2 = 0.87
+OBP vs. Hits, R2 = 0.65
+SLG vs. Hits, R2 = 0.84
+X2B vs. Hits, R2 = 0.65
+X3B vs. Hits, R2 = 0.05
+
+
+```{r}
+
+batting_season_summary$Hit_Estimator <- 87 * batting_season_summary$BA + 84 * batting_season_summary$SLG + 0.67 * batting_season_summary$HR + 65 * batting_season_summary$OBP + 0.65 * batting_season_summary$X2B
+
+```
+
+```{r}
+Hits_HitEstimator = lm(Hit_Estimator ~ H, data=batting_season_summary)
+summary(Hits_HitEstimator)
+
+ggplot(batting_season_summary, aes(x=Hit_Estimator,y=H)) +
+  geom_point() + 
+  geom_smooth(method='lm')
+
+
+```
+
+```{r}
+
+batting_season_summary$Hit_Estimator2 <- 100 * batting_season_summary$BA + (84/87 * batting_season_summary$SLG) + (67/87 * batting_season_summary$HR) + 75 * batting_season_summary$OBP + (65/87 * batting_season_summary$X2B)
+
+
+
+```
+
+```{r}
+
+Hits_HitEstimator2 = lm(Hit_Estimator2 ~ H, data=batting_season_summary)
+summary(Hits_HitEstimator)
+
+ggplot(batting_season_summary, aes(x=Hit_Estimator2,y=H)) +
+  geom_point() + 
+  geom_smooth(method='lm')
+
+
+
+```
+
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

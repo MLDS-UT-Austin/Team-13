@@ -1,25 +1,33 @@
-# DataHack2024
-The official repository for the dataset and starter code for DataHack 2024. 
+Weighted On-Base Average (wOBA):
 
-**Please change the repository name to your team name before doing anything else!**
+wOBA is a comprehensive measure of offensive production that assigns weights to different types of offensive events based on their run-scoring value.
+It considers factors such as singles, doubles, triples, home runs, walks, and hit-by-pitches.
+Higher weights are assigned to events with a greater impact on scoring runs (e.g., home runs), while lower weights are assigned to events with less impact (e.g., singles).
+Isolated Power (ISO):
 
-## Submission
+ISO measures a player's raw power by quantifying the difference between their slugging percentage and batting average.
+It provides insights into a player's ability to generate extra-base hits, excluding the contribution from singles.
+Higher ISO values indicate a greater ability to hit for power and extra-base hits.
+Adjusted Batting Average (Adj. BA):
 
-Please update, commit, and push the following files to your GitHub Classroom repo:
+Adj. BA adjusts a player's batting average to account for factors such as ballpark effects, league-wide batting averages, and pitching quality.
+It provides a more accurate assessment of a player's batting performance by accounting for external factors that may influence batting averages.
+Batting Runs Above Average (BsRAA):
 
-**Due at 3:30 pm:**
+BsRAA quantifies a player's batting performance relative to league average, taking into account the run-scoring environment and the player's offensive contributions.
+It provides a measure of how many runs a player contributes with their batting performance compared to an average player in the league.
+Deserved Runs Created Plus (dRC+):
 
-- `submission.csv`: Please update this file with your predictions and bids.
+dRC+ is a comprehensive metric that combines a player's ability to create runs (based on total bases, walks, and steals) with adjustments for league and park effects.
+It provides a normalized measure of a player's offensive production, with 100 representing league average and values above or below indicating performance above or below average, respectively.
+Batting Average on Balls in Play (BABIP):
 
-**Due at 4:00 pm:**
+BABIP measures a player's batting average on balls put in play, excluding home runs and strikeouts.
+It provides insights into a player's ability to generate hits on balls in play, adjusting for factors such as defense, luck, and batted ball profile.
+Run Expectancy (RE):
 
-- `slides.pptx`: Please update this file with your presentation slides.
-- Code: Please submit the code you used to analyze the data and generate your solution.csv file. This should be well commented/readable.
+RE quantifies the expected number of runs a player contributes with each plate appearance, based on the specific game situation (e.g., base-out states, inning, score).
+It provides insights into a player's ability to generate runs in different game contexts, accounting for situational factors that may impact offensive production.
 
-## Resources
-
-Remember to join [our discord](https://discord.gg/vyd36Sze) for updates! 
-
-Datahack resources (dataset, problem description, slides, etc.) can be found [here](https://drive.google.com/drive/folders/1XU8aUJy1xSLOxN_XLqD0N3vJMbyzRPxE?usp=share_link)
 
 

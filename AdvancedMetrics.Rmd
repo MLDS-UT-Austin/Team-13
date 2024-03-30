@@ -1,0 +1,49 @@
+---
+title: "AdvancedMetric"
+author: "Dharma Uppuluri"
+date: "2024-03-30"
+output: pdf_document
+---
+
+```{r}
+
+batting_season_summary <- read.csv("batting_season_summary.csv")
+
+wPA = cor(batting_season_summary$PA, batting_season_summary$H)
+wAB = cor(batting_season_summary$AB, batting_season_summary$H)
+wH = cor(batting_season_summary$H, batting_season_summary$H)
+wX2B = cor(batting_season_summary$X2B, batting_season_summary$H)
+wX3B = cor(batting_season_summary$X3B, batting_season_summary$H)
+wHR = cor(batting_season_summary$HR, batting_season_summary$H)
+wBB = cor(batting_season_summary$BB, batting_season_summary$H)
+wSO = cor(batting_season_summary$SO, batting_season_summary$H)
+wP.PA = cor(batting_season_summary$P.PA, batting_season_summary$H)
+wBA = cor(batting_season_summary$BA, batting_season_summary$H)
+wOBP = cor(batting_season_summary$OBP, batting_season_summary$H)
+wSLG = cor(batting_season_summary$SLG, batting_season_summary$H)
+wOPS = cor(batting_season_summary$OPS, batting_season_summary$H)
+
+Aaron = subset (batting_season_summary, Name == "Eric Cyr")
+
+batting_season_summary$wOBA = (wBB*batting_season_summary$BB + (wH*batting_season_summary$H - wX2B*batting_season_summary$X2B - wX3B*batting_season_summary$X3B - wHR*batting_season_summary$HR)+(wX2B*batting_season_summary$X2B)+(wX3B*batting_season_summary$X3B)+(wHR*batting_season_summary$HR)+(wBB*batting_season_summary$BB))
+
+```
+
+```{r}
+ISO = Aaron$SLG - Aaron$BA
+
+ISO
+
+```
+```{r}
+
+MeanBA = mean(batting_season_summary$BA)
+
+MeanBA
+
+BsRAA = Aaron$BA / MeanBA
+
+BsRAA
+
+```
+
